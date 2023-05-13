@@ -20,7 +20,7 @@ namespace OpenAI
         private AudioClip clip;
         private bool isRecording;
         private float time;
-        private OpenAIApi openai = new OpenAIApi("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");
+        private OpenAIApi openai = new OpenAIApi("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");
 
         private void Start()
         {
@@ -40,35 +40,38 @@ namespace OpenAI
             PlayerPrefs.SetInt("user-mic-device-index", index);
         }
 
-        private void StartRecording()
+        private async void StartRecording()
         {
-            isRecording = true;
-            recordButton.enabled = false;
-            recordButton.image.sprite = micOn;
-
-            var index = PlayerPrefs.GetInt("user-mic-device-index");
-            clip = Microphone.Start(dropdown.options[index].text, false, duration, 44100);
-        }
-
-        private async void EndRecording()
-        {
-            message.text = "Transcripting...";
-
-            Microphone.End(null);
-            byte[] data = SaveWav.Save(fileName, clip);
-
-            var req = new CreateAudioTranscriptionsRequest
+            if (!isRecording)
             {
-                FileData = new FileData() { Data = data, Name = "audio.wav" },
-                // File = Application.persistentDataPath + "/" + fileName,
-                Model = "whisper-1",
-                Language = "en"
-            };
-            var res = await openai.CreateAudioTranscription(req);
+                Debug.Log("Start...");
+                isRecording = true;
+                recordButton.image.sprite = micOn;
 
-            message.text = res.Text;
-            recordButton.enabled = true;
-            recordButton.image.sprite = micMuted;
+                var index = PlayerPrefs.GetInt("user-mic-device-index");
+                clip = Microphone.Start(dropdown.options[index].text, true, duration, 44100);
+            }
+            else
+            {
+                Debug.Log("Ended...");
+                message.text = "Transcripting...";
+
+                Microphone.End(null);
+                byte[] data = SaveWav.Save(fileName, clip);
+
+                var req = new CreateAudioTranscriptionsRequest
+                {
+                    FileData = new FileData() { Data = data, Name = "audio.wav" },
+                    // File = Application.persistentDataPath + "/" + fileName,
+                    Model = "whisper-1",
+                    Language = "en"
+                };
+                var res = await openai.CreateAudioTranscription(req);
+
+                message.text = res.Text;
+                recordButton.image.sprite = micMuted;
+            }
+            
         }
 
         private void Update()
@@ -81,7 +84,6 @@ namespace OpenAI
                 {
                     time = 0;
                     isRecording = false;
-                    EndRecording();
                 }
             }
         }
