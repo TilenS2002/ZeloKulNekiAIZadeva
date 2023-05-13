@@ -2455,6 +2455,7 @@ GameObject:
   - component: {fileID: 1844700045}
   - component: {fileID: 1844700046}
   - component: {fileID: 1844700047}
+  - component: {fileID: 1844700048}
   m_Layer: 0
   m_Name: robo (1)
   m_TagString: Untagged
@@ -2520,6 +2521,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1844700048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844700043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb22785506a48b44f98f47628516db8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1850618432
 GameObject:
   m_ObjectHideFlags: 0
@@ -2936,8 +2949,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 677936695}
   m_HandleRect: {fileID: 677936693}
   m_Direction: 2
-  m_Value: 0.003386686
-  m_Size: 0.20597656
+  m_Value: 0.0032954619
+  m_Size: 0.20604925
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
