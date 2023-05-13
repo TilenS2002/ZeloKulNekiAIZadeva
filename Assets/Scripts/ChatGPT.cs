@@ -38,8 +38,11 @@ namespace OpenAI
         }
         public void SendVoiceReply(string s)
         {
-            inputField.text = s;
-            SendReply();
+            if(s.Length > 0)
+            {
+                inputField.text = s;
+                SendReply();
+            }
         }
         private async void SendReply()
         {
