@@ -13,10 +13,10 @@ public class micBtn : MonoBehaviour
 
     void Start()
     {
-
+        btn.image.sprite = micOff;
     }
 
-    public void OnButtonPress()
+    public void OnMicButtonPress()
     {
         if (btn.image.sprite == micOn)
             btn.image.sprite = micMuted;
@@ -25,4 +25,6 @@ public class micBtn : MonoBehaviour
             btn.image.sprite = micOn;
         }
     }
+
+
 }

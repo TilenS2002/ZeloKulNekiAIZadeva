@@ -7,9 +7,12 @@ namespace OpenAI
     public class Whisper : MonoBehaviour
     {
         [SerializeField] private Button recordButton;
-        [SerializeField] private Image progressBar;
         [SerializeField] private Text message;
         [SerializeField] private Dropdown dropdown;
+
+        public Sprite micOn;
+        public Sprite micOff;
+        public Sprite micMuted;
 
         private readonly string fileName = "output.wav";
         private readonly int duration = 5;
@@ -41,6 +44,7 @@ namespace OpenAI
         {
             isRecording = true;
             recordButton.enabled = false;
+            recordButton.image.sprite = micOn;
 
             var index = PlayerPrefs.GetInt("user-mic-device-index");
             clip = Microphone.Start(dropdown.options[index].text, false, duration, 44100);
@@ -62,9 +66,9 @@ namespace OpenAI
             };
             var res = await openai.CreateAudioTranscription(req);
 
-            progressBar.fillAmount = 0;
             message.text = res.Text;
             recordButton.enabled = true;
+            recordButton.image.sprite = micMuted;
         }
 
         private void Update()
@@ -72,7 +76,6 @@ namespace OpenAI
             if (isRecording)
             {
                 time += Time.deltaTime;
-                progressBar.fillAmount = time / duration;
 
                 if (time >= duration)
                 {
