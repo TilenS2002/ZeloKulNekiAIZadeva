@@ -76,6 +76,7 @@ namespace OpenAI
                 
                 messages.Add(message);
                 AppendMessage(message);
+                WindowsVoice.speak(message.Content, 0f);
             }
             else
             {

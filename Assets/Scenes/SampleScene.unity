@@ -1958,7 +1958,7 @@ GameObject:
   - component: {fileID: 1480002437}
   - component: {fileID: 1480002438}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TextVoice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1999,7 +1999,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480002435}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -2936,8 +2936,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 677936695}
   m_HandleRect: {fileID: 677936693}
   m_Direction: 2
-  m_Value: 0.0033866265
-  m_Size: 0.20597658
+  m_Value: 0.003386686
+  m_Size: 0.20597656
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
