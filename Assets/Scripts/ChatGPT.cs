@@ -15,10 +15,10 @@ namespace OpenAI
 
         private float height;
         private OpenAIApi openai = new OpenAIApi();
+        public Mood cmood;
 
         private List<ChatMessage> messages = new List<ChatMessage>();
-        private string prompt = "Act as a joyfull joking online instructor for any subject that is requested. Answer the questions provided and use Yarn spinner language to express your mood. Your moods are neutral, happy, puzzled, sad, excited depending on what the user asks you.";
-
+        private string prompt = "Act as a joyfull joking online instructor for any subject that is requested. Answer the questions provided and use Yarn spinner language to express your mood. Your moods are neutral, sad, puzzled, concerned, passion depending on what the user asks you. Always write it like <<sad>> then next line write the message. Make the message shorter and compact. The user you are talking to is a student and above";
         private void Start()
         {
             button.onClick.AddListener(SendReply);
@@ -38,11 +38,12 @@ namespace OpenAI
         }
         public void SendVoiceReply(string s)
         {
-            if(s.Length > 0)
-            {
-                inputField.text = s;
-                SendReply();
-            }
+            Debug.Log(s);
+            if (inputField != null && s.Length > 0)
+                {
+                    inputField.text = s;
+                    SendReply();
+                }
         }
         private async void SendReply()
         {
@@ -74,9 +75,31 @@ namespace OpenAI
                 var message = completionResponse.Choices[0].Message;
                 message.Content = message.Content.Trim();
                 
+                string mood = "";
+                int start = message.Content.IndexOf("<<") + 2;
+                int end = message.Content.IndexOf(">>");
+                if (start >= 0 && end >= 0 && end > start)
+                {
+                    mood = message.Content.Substring(start, end - start);
+                }
+                
+                // Remove the mood tag from the message content
+                message.Content = message.Content.Replace("<<" + mood + ">>", "").Trim();
+
                 messages.Add(message);
                 AppendMessage(message);
+                Debug.Log(message.Content);
                 WindowsVoice.speak(message.Content, 0f);
+                
+                // Use the mood for later use
+                Debug.Log("Mood: " + mood);
+                if(mood.Length <= 0){
+                    cmood.UpdateMood("neutral");
+                }
+                else{
+                    cmood.UpdateMood(mood);
+                }
+
             }
             else
             {
