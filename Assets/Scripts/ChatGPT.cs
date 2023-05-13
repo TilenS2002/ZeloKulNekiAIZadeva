@@ -36,7 +36,11 @@ namespace OpenAI
             scroll.content.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
             scroll.verticalNormalizedPosition = 0;
         }
-
+        public void SendVoiceReply(string s)
+        {
+            inputField.text = s;
+            SendReply();
+        }
         private async void SendReply()
         {
             var newMessage = new ChatMessage()

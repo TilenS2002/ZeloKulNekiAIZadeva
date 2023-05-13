@@ -5,25 +5,21 @@ using UnityEngine.UI;
 
 public class micBtn : MonoBehaviour
 {
-    int n;
-    public Sprite micOn;
-    public Sprite micOff;
-    public Sprite micMuted;
+    public Sprite Open;
+    public Sprite Close;
     public Button btn;
+    public GameObject go;
+
+    private bool isOpen;
 
     void Start()
     {
-        btn.image.sprite = micOff;
+        btn.image.sprite = Open;
+        isOpen = false;
     }
 
-    public void OnMicButtonPress()
+    public void OnChatButtonPress()
     {
-        if (btn.image.sprite == micOn)
-            btn.image.sprite = micMuted;
-        else
-        {
-            btn.image.sprite = micOn;
-        }
     }
 
 

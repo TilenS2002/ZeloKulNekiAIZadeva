@@ -13,6 +13,7 @@ namespace OpenAI
         public Sprite micOn;
         public Sprite micOff;
         public Sprite micMuted;
+        public ChatGPT cgpt;
 
         private readonly string fileName = "output.wav";
         private readonly int duration = 5;
@@ -20,7 +21,7 @@ namespace OpenAI
         private AudioClip clip;
         private bool isRecording;
         private float time;
-        private OpenAIApi openai = new OpenAIApi("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");
+        private OpenAIApi openai = new OpenAIApi("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");
 
         private void Start()
         {
@@ -70,6 +71,7 @@ namespace OpenAI
 
                 message.text = res.Text;
                 recordButton.image.sprite = micMuted;
+                cgpt.SendVoiceReply(res.Text);
             }
             
         }
