@@ -14,11 +14,11 @@ namespace OpenAI
         [SerializeField] private RectTransform received;
 
         private float height;
-        private OpenAIApi openai = new OpenAIApi("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");
+        private OpenAIApi openai = new OpenAIApi();
 
         private List<ChatMessage> messages = new List<ChatMessage>();
-        private string prompt = "Act as a joyfull joking online instructor for any subject that is requested. Answer the questions provided and use Yarn spinner language to express your mood. Your moods are neutral, happy, puzzled, sad, excited depending on what the user asks you.";
-        
+        private string prompt = "Act as a random stranger in a chat room and reply to the questions. Don't break character. Don't ever mention that you are an AI model.";
+
         private void Start()
         {
             button.onClick.AddListener(SendReply);
