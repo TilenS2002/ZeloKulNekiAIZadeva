@@ -1185,8 +1185,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 2039.2533}
-  m_SizeDelta: {x: 0, y: 2568.2532}
+  m_AnchoredPosition: {x: 0, y: 272.86646}
+  m_SizeDelta: {x: 0, y: 801.86664}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &619463095
 GameObject:
@@ -1925,6 +1925,7 @@ MonoBehaviour:
   scroll: {fileID: 1244039701}
   sent: {fileID: 8660877164928630359, guid: 53cd26a6eefa5a74086203cd118a04d3, type: 3}
   received: {fileID: 961534450149497043, guid: adc0146c2853ed1418133faaf4379eb1, type: 3}
+  cmood: {fileID: 0}
 --- !u!4 &1131396122
 Transform:
   m_ObjectHideFlags: 0
@@ -3210,13 +3211,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 677936695}
   m_HandleRect: {fileID: 677936693}
   m_Direction: 2
-<<<<<<< HEAD
-  m_Value: 0.0032954619
-  m_Size: 0.20604925
-=======
-  m_Value: -0.0000001197206
-  m_Size: 0.20597656
->>>>>>> apBranch
+  m_Value: 0.00000067104367
+  m_Size: 0.65971065
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
