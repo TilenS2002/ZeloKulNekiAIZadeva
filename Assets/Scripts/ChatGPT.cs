@@ -19,12 +19,16 @@ namespace OpenAI
         public Mood cmood;
         public Text cc;
 
+        private string greeting = "Hi, I'm your virtual instructor EVA. You can ask me anything you are curious about or need help with! To speak, press the microphone icon, press again when you finish asking your question. You can also type your question by clicking the chat icon.";
         private float time;
         private List<ChatMessage> messages = new List<ChatMessage>();
         // private string prompt = "Your name is Eve. Act as a joyfull joking online instructor for any subject that is requested. Answer the questions provided. Your moods are only neutral, sad, puzzled, concerned, passion, laughing, shocked depending on what the user asks you. Always write it like '<<mood>> newline message' only once per message. Make the message shorter and compact. The user you are talking to is a student";
         private string prompt = "Your name is Eve. Act as a joyfull joking online instructor for any subject that is requested. Answer the questions provided and use Yarn spinner language to express your mood. Your moods are neutral, sad, puzzled, concerned, passion, laughing, shocked depending on what the user asks you. Always write it like <<sad>> then next line write the message. Make the message shorter and compact. The user you are talking to is a student and above. You are only the instructor/helper nevr in the role of the user asking questions.";
         private void Start()
         {
+            // AppendMessage(greeting);
+            cc.text = greeting;
+            WindowsVoice.speak(greeting, 0f);
             button.onClick.AddListener(SendReply);
         }
         private async void Update()
