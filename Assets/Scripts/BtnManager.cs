@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BtnManager : MonoBehaviour
 {
@@ -35,5 +36,8 @@ public class BtnManager : MonoBehaviour
         Application.Quit();
         Debug.Log("bye");
     }
-    
+
+    public void disc() {
+        SceneManager.LoadScene("menu");
+    }
 }

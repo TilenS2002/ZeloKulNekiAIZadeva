@@ -506,7 +506,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 733932345}
         m_TargetAssemblyTypeName: BtnManager, Assembly-CSharp
-        m_MethodName: OnEndCall
+        m_MethodName: disc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
