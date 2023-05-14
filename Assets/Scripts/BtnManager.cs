@@ -18,6 +18,7 @@ public class BtnManager : MonoBehaviour
     void Start()
     {
         rt = go.GetComponent<RectTransform>();
+        go.SetActive(true);
         btn.image.sprite = Open;
         isOpen = false;
         rt.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 1100, 0);

@@ -15,19 +15,37 @@ namespace OpenAI
 
         private float height;
         private OpenAIApi openai = new OpenAIApi();
+        public float duration = 2f;
         public Mood cmood;
+        public Text cc;
 
+        private float time;
         private List<ChatMessage> messages = new List<ChatMessage>();
         private string prompt = "Act as a joyfull joking online instructor for any subject that is requested. Answer the questions provided and use Yarn spinner language to express your mood. Your moods are neutral, sad, puzzled, concerned, passion depending on what the user asks you. Always write it like <<sad>> then next line write the message. Make the message shorter and compact. The user you are talking to is a student and above";
         private void Start()
         {
             button.onClick.AddListener(SendReply);
         }
-        private void Update()
+        private async void Update()
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 SendReply();
+            }
+            if(cc.text.Length > 3) { time += Time.deltaTime; Debug.Log(duration); }
+            
+            if (time >= duration)
+            {
+                time = 0;
+                if(cc.text.Length > 40)
+                {
+                    cc.text = cc.text.Substring(40);
+                }
+                else
+                {
+                    cc.text = "...";
+                }
+
             }
         }
 
@@ -95,6 +113,7 @@ namespace OpenAI
 
                 messages.Add(message);
                 AppendMessage(message);
+                cc.text = message.Content;
                 Debug.Log(message.Content);
                 WindowsVoice.speak(message.Content, 0f);
                 
