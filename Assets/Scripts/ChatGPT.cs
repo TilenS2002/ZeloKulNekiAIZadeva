@@ -21,7 +21,8 @@ namespace OpenAI
 
         private float time;
         private List<ChatMessage> messages = new List<ChatMessage>();
-        private string prompt = "Act as a joyfull joking online instructor for any subject that is requested. Answer the questions provided and use Yarn spinner language to express your mood. Your moods are neutral, sad, puzzled, concerned, passion depending on what the user asks you. Always write it like <<sad>> then next line write the message. Make the message shorter and compact. The user you are talking to is a student and above";
+        // private string prompt = "Your name is Eve. Act as a joyfull joking online instructor for any subject that is requested. Answer the questions provided. Your moods are only neutral, sad, puzzled, concerned, passion, laughing, shocked depending on what the user asks you. Always write it like '<<mood>> newline message' only once per message. Make the message shorter and compact. The user you are talking to is a student";
+        private string prompt = "Your name is Eve. Act as a joyfull joking online instructor for any subject that is requested. Answer the questions provided and use Yarn spinner language to express your mood. Your moods are neutral, sad, puzzled, concerned, passion, laughing, shocked depending on what the user asks you. Always write it like <<sad>> then next line write the message. Make the message shorter and compact. The user you are talking to is a student and above. You are only the instructor/helper nevr in the role of the user asking questions.";
         private void Start()
         {
             button.onClick.AddListener(SendReply);
@@ -32,7 +33,7 @@ namespace OpenAI
             {
                 SendReply();
             }
-            if(cc.text.Length > 3) { time += Time.deltaTime; Debug.Log(duration); }
+            if(cc.text.Length > 3) { time += Time.deltaTime; }
             
             if (time >= duration)
             {

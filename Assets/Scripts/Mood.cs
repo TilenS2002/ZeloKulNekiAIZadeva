@@ -12,6 +12,8 @@ public class Mood : MonoBehaviour
     public Sprite concernedSprite;
     public Sprite passionSprite;
     public Sprite puzzledSprite;
+    public Sprite laughingSprite;
+    public Sprite shockedSprite;
 
 [SerializeField] private string mood = "neutral";
 private void Start()
@@ -21,12 +23,14 @@ private void Start()
     passionSprite = Resources.Load<Sprite>("Sprites/passion");
     puzzledSprite = Resources.Load<Sprite>("Sprites/puzzled");
     concernedSprite = Resources.Load<Sprite>("Sprites/concerned");
+    laughingSprite = Resources.Load<Sprite>("Sprites/laugh");
+    shockedSprite = Resources.Load<Sprite>("Sprites/shocked");
     moodImage = GetComponent<Image>();
 }
 
 public void UpdateMood(string moodChange)
 {
-    mood = moodChange;
+    mood = moodChange.ToLower();
     UpdateMoodImage();
     Debug.Log("moodChange:" + moodChange);
 }
@@ -55,6 +59,14 @@ private void UpdateMoodImage()
     else if (mood == "puzzled")
     {
         moodImage.sprite = puzzledSprite;
+    }
+    else if (mood == "laughing")
+    {
+        moodImage.sprite = laughingSprite;
+    }
+    else if (mood == "shocked")
+    {
+        moodImage.sprite = shockedSprite;
     }
 
 }
