@@ -23,6 +23,13 @@ namespace OpenAI
         {
             button.onClick.AddListener(SendReply);
         }
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                SendReply();
+            }
+        }
 
         private void AppendMessage(ChatMessage message)
         {

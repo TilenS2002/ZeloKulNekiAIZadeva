@@ -34,4 +34,5 @@ public class BtnManager : MonoBehaviour
         Application.Quit();
         Debug.Log("bye");
     }
+    
 }

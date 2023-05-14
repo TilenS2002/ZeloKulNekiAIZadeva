@@ -1925,7 +1925,7 @@ MonoBehaviour:
   scroll: {fileID: 1244039701}
   sent: {fileID: 8660877164928630359, guid: 53cd26a6eefa5a74086203cd118a04d3, type: 3}
   received: {fileID: 961534450149497043, guid: adc0146c2853ed1418133faaf4379eb1, type: 3}
-  cmood: {fileID: 0}
+  cmood: {fileID: 1844700049}
 --- !u!4 &1131396122
 Transform:
   m_ObjectHideFlags: 0
@@ -2718,6 +2718,7 @@ GameObject:
   - component: {fileID: 1844700046}
   - component: {fileID: 1844700047}
   - component: {fileID: 1844700048}
+  - component: {fileID: 1844700049}
   m_Layer: 0
   m_Name: robo (1)
   m_TagString: Untagged
@@ -2795,6 +2796,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb22785506a48b44f98f47628516db8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1844700049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844700043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c5258a5856f26418325f0c712fdcb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moodImage: {fileID: 1844700047}
+  neutralSprite: {fileID: 21300000, guid: 6161b9e1aec6ce546941e33e4b9ae528, type: 3}
+  sadSprite: {fileID: 21300000, guid: f6fb7a9c645bd104fbd4ed28831b917d, type: 3}
+  concernedSprite: {fileID: 21300000, guid: 40f0a119a09eee548a62cb24bd99c4cd, type: 3}
+  passionSprite: {fileID: 21300000, guid: e0c776dcbf6dd094f9b34b579743987f, type: 3}
+  puzzledSprite: {fileID: 21300000, guid: eb535e77bcb2c4c44bf82ad001b17fee, type: 3}
+  mood: neutral
 --- !u!1 &1850618432
 GameObject:
   m_ObjectHideFlags: 0
